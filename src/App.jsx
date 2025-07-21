@@ -1,6 +1,18 @@
 import './App.css';
+import React, { useState } from 'react';
+import Login from './pages/Login';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
